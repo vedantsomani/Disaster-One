@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="text-3xl font-bold mb-6">NGO Dashboard</h2>
+
+<h3 class="text-2xl font-semibold mb-4">Post New Resource</h3>
+<form method="POST" class="space-y-4 mb-6">
+  <input type="text" name="resource_name" placeholder="Resource Name" required class="w-full p-3 rounded border">
+  <input type="number" name="quantity" placeholder="Quantity" required class="w-full p-3 rounded border">
+  <button type="submit" class="bg-green-600 text-white py-2 px-4 rounded">Post Resource</button>
+</form>
+
+<h3 class="text-2xl font-semibold mb-4">Your Resources</h3>
+<ul class="space-y-2">
+  {% for resource in resources %}
+  <li class="p-2 border rounded bg-white">
+    {{ resource.name }} - Quantity: {{ resource.quantity }} -
+    {% if resource.approved %}
+      <span class="text-green-600">Approved</span>
+    {% else %}
+      <span class="text-yellow-500">Pending Approval</span>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}

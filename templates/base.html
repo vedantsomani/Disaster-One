@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{{ title or "Disaster One" }}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='spinner.css') }}">
+  <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+  <meta name="theme-color" content="#4f46e5">
+  <script defer src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body class="bg-gray-100 text-gray-900 min-h-screen flex flex-col">
+
+  <div class="spinner-container" id="spinner">
+    <div class="loader"></div>
+  </div>
+
+  <header class="bg-white shadow p-4 flex justify-between items-center">
+    <h1 class="text-2xl font-bold text-primary">Disaster One</h1>
+    <a href="{{ url_for('logout') }}" class="text-red-500">Logout</a>
+  </header>
+
+  <main class="flex-grow p-6">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="bg-white p-4 text-center text-gray-500">
+    &copy; 2025 Disaster One. All rights reserved.
+  </footer>
+
+</body>
+</html>

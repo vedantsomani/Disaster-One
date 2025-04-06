@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="text-3xl font-bold mb-6 text-center">Login</h2>
+{% if error %}
+<p class="text-red-500 mb-4 text-center">{{ error }}</p>
+{% endif %}
+<form method="POST" class="space-y-4 max-w-sm mx-auto">
+  <input type="email" name="email" placeholder="Email" required class="w-full p-3 rounded border">
+  <input type="password" name="password" placeholder="Password" required class="w-full p-3 rounded border">
+  <button type="submit" class="w-full bg-primary text-white py-2 rounded">Login</button>
+</form>
+<p class="text-center mt-4">Don't have an account? <a href="{{ url_for('register') }}" class="text-blue-500">Register</a></p>
+{% endblock %}

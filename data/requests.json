@@ -1,0 +1,23 @@
+[
+  {
+    "type": "Food",
+    "details": "Watter\r\n",
+    "status": "Completed",
+    "survivor": "bb@b.b",
+    "assigned_volunteer": "aayushiraj1612@gmail.com"
+  },
+  {
+    "type": "Medical",
+    "details": "2",
+    "status": "In Progress",
+    "survivor": "1@1",
+    "assigned_volunteer": null
+  },
+  {
+    "type": "Food",
+    "details": "Bread\r\n",
+    "status": "Assigned",
+    "survivor": "bb@b.b",
+    "assigned_volunteer": "aayushiraj1612@gmail.com"
+  }
+]

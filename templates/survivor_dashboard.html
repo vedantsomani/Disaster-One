@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="text-3xl font-bold mb-6">Survivor Dashboard</h2>
+
+<form method="POST" class="space-y-4 mb-6">
+  <select name="help_type" class="w-full p-3 rounded border">
+    <option value="Food">Food</option>
+    <option value="Medical">Medical</option>
+    <option value="Shelter">Shelter</option>
+    <option value="Rescue">Rescue</option>
+  </select>
+  <textarea name="details" placeholder="Details" class="w-full p-3 rounded border"></textarea>
+  <button type="submit" class="bg-primary text-white py-2 px-4 rounded">Request Help</button>
+</form>
+
+<button id="sosButton" class="bg-alert text-white py-2 px-4 rounded text-lg animate-pulse">🚨 SOS Emergency</button>
+
+<div id="sosModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center hidden">
+  <div class="bg-white p-6 rounded shadow max-w-sm text-center relative">
+    <h3 class="text-2xl font-bold text-alert mb-4">🚨 Emergency Contacts</h3>
+    <p class="mb-2">Your Location: <strong id="userLocation">Fetching...</strong></p>
+    <ul class="space-y-2 text-left text-lg text-gray-700">
+      <li><strong>Police:</strong> <a href="tel:100" class="text-blue-500">100</a></li>
+      <li><strong>Ambulance:</strong> <a href="tel:102" class="text-blue-500">102</a></li>
+      <li><strong>Army:</strong> <a href="tel:101" class="text-blue-500">101</a></li>
+      <li><strong>Air Force:</strong> <a href="tel:108" class="text-blue-500">108</a></li>
+      <li><strong>NDRF:</strong> <a href="tel:112" class="text-blue-500">112</a></li>
+    </ul>
+    <button id="closeSOS" class="mt-4 bg-alert text-white py-2 px-4 rounded">Close</button>
+    <audio id="sirenAudio" src="/static/siren.mp3" autoplay loop></audio>
+  </div>
+</div>
+{% endblock %}

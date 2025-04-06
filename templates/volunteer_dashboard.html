@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="text-3xl font-bold mb-6">Volunteer Dashboard</h2>
+
+<h3 class="text-2xl font-semibold mb-4">My Assigned Tasks</h3>
+<ul class="space-y-2">
+  {% for index, request in enumerate(requests) %}
+    {% if request.assigned_volunteer == session['user']['email'] %}
+    <li class="p-2 border rounded bg-white">
+      <strong>{{ request.type }}</strong>: {{ request.details }}<br>
+      Status: {{ request.status }}
+      <form method="POST" class="mt-2">
+        <input type="hidden" name="task_index" value="{{ index }}">
+        <select name="status" class="p-1 rounded border">
+          <option value="In Progress" {% if request.status == 'In Progress' %}selected{% endif %}>In Progress</option>
+          <option value="Completed" {% if request.status == 'Completed' %}selected{% endif %}>Completed</option>
+        </select>
+        <button type="submit" class="bg-green-600 text-white py-1 px-2 rounded">Update</button>
+      </form>
+    </li>
+    {% endif %}
+  {% else %}
+  <li class="text-gray-500 text-sm">No assigned tasks.</li>
+  {% endfor %}
+</ul>
+{% endblock %}
